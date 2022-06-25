@@ -56,7 +56,6 @@ const findPersonById = (personId, done) => {
         if (err) return console.error(err);
         else done(null, data);
     });
-    done(null /*, data*/);
 };
 
 const findEditThenSave = (personId, done) => {
