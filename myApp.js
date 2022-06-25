@@ -5,10 +5,7 @@ require("dotenv").config();
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 let personSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        require: true,
-    },
+    name: String,
     age: Number,
     favoriteFoods: [String],
 });
@@ -99,7 +96,7 @@ const queryChain = (done) => {
         .sort({ name: 1 })
         .limit(2)
         .select({ age: 0 })
-        .exec(function (err, data) {
+        .exec((err, data) => {
             if (err) return console.error(err);
             else done(null, data);
         });
